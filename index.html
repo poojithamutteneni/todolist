@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>To Do List</title>
+  </head>
+  <body>
+    <div id="header">
+      <h1>To-Do-List</h1>
+      <input type="text" placeholder="add task" id="task">
+      <button onclick="addTask()">Add Task</button>
+      </div>
+      <ul id="list">
+        </ul>
+
+        </body>
+        </html>
+<script type=text/javascript>
+var list=document.getElementById("list");
+var task=document.getElementById("task");
+
+function addTask(){
+  list.innerHTML+=`
+<li>${task.value}<input type="checkbox" id="check"></li>
+  `
+  task.value="";
+}
+list.addEventListener("click",done);
+
+function done(e){
+  if(e.target.type==="checkbox"){
+    e.target.parentNode.style.textDecoration="line-through black";
+  }
+}
+</script>
