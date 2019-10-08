@@ -1,0 +1,36 @@
+*{
+  margin:0;
+  padding:0;
+}
+h1{
+  color:black;
+  padding-bottom: 10px;
+}
+#header{
+  padding:30px;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: pink;
+  margin-bottom: 30px;
+  text-align: center;
+}
+#header input{
+  width:50%
+}
+#list {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: left;
+  font-size: 30px;
+}
+#list li{
+  background-color: pink;
+  color:black ;
+  border:1px solid white;
+  padding:15px;
+  cursor:pointer;
+}
+#check{
+  float: right;
+}
