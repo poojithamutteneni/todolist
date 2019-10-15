@@ -5,32 +5,59 @@
   <link rel="stylesheet" href="style.css">
   <title>To Do List</title>
   </head>
-  <body>
-    <div id="header">
-      <h1>To-Do-List</h1>
-      <input type="text" placeholder="add task" id="task">
-      <button onclick="addTask()">Add Task</button>
-      </div>
-      <ul id="list">
+        <div id="header">
+          <h1>To-Do List</h1>
+          <input type="text" id="task" placeholder="enter task">
+          <button onclick="addItem()" class="addBtn">SUBMIT</button>
+        </div>
+
+        <ul id="list">
+
         </ul>
+        <script>
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u2296");
+          span.className = "close";
+          span.appendChild(txt);
+          myNodelist[i].appendChild(span);
+        }
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+        function addItem() {
+          var li = document.createElement("li");
+          var inputValue = document.getElementById("task").value;
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          if (inputValue === '') {
+            alert(" Please enter some text");
+          } else {
+            document.getElementById("list").appendChild(li);
+          }
+          document.getElementById("task").value = "";
+
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u2296");
+          span.className = "close";
+          span.appendChild(txt);
+          li.appendChild(span);
+
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+              var div = this.parentElement;
+              div.style.display = "none";
+            }
+          }
+        }
+        </script>
 
         </body>
         </html>
-<script type=text/javascript>
-var list=document.getElementById("list");
-var task=document.getElementById("task");
-
-function addTask(){
-  list.innerHTML+=`
-<li>${task.value}<input type="checkbox" id="check"></li>
-  `
-  task.value="";
-}
-list.addEventListener("click",done);
-
-function done(e){
-  if(e.target.type==="checkbox"){
-    e.target.parentNode.style.textDecoration="line-through black";
-  }
-}
-</script>
